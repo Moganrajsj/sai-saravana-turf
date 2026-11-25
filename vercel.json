@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/employee",
+      "destination": "/employee/index.html"
+    },
+    {
+      "source": "/employee/:path*",
+      "destination": "/employee/:path*"
+    },
+    {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "/admin/:path*"
+    }
+  ]
+}
