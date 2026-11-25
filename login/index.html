@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0f0d"><title>Customer Login · Sai Saravana Turf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--ink:#0b0f0d;--panel:#111713;--bone:#ece8de;--mut:#8a948c;--line:rgba(236,232,222,.15);--red:#e8412c;--d:"Barlow Condensed","Arial Narrow",Impact,sans-serif}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--ink);color:var(--bone);font:400 16px/1.55 Barlow,system-ui,sans-serif;display:grid;grid-template-rows:auto 1fr auto}
+a{color:inherit;text-decoration:none}.top,.foot{width:min(1160px,calc(100% - 40px));margin:auto;display:flex;align-items:center;justify-content:space-between}.top{height:78px}.logo{font:800 23px var(--d);letter-spacing:.1em;text-transform:uppercase}.logo i{font-style:normal;color:var(--red)}.back{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#c4c9c3}
+main{width:min(1160px,calc(100% - 40px));margin:34px auto 70px;display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.eyebrow{color:#a7b0a8;font-size:11px;letter-spacing:.24em;text-transform:uppercase;margin-bottom:18px}.eyebrow b{color:var(--red);margin-right:8px}
+h1{font:800 clamp(58px,8vw,108px)/.86 var(--d);text-transform:uppercase;margin:0;max-width:620px}h1 em{font-style:normal;color:var(--red)}
+.lead{max-width:480px;color:#aeb8b0;font-size:17px;margin:28px 0 0}.benefits{display:grid;gap:14px;margin-top:38px;color:#cbd0c9;font-size:14px}.benefits span:before{content:"—";color:var(--red);margin-right:12px}
+.panel{background:var(--bone);color:var(--ink);border-radius:5px;padding:clamp(24px,4vw,42px);box-shadow:0 24px 80px rgba(0,0,0,.22)}
+.panel h2{font:700 36px/1 var(--d);text-transform:uppercase;margin:0 0 8px}.panel p{color:#59625b;font-size:14px;margin:0 0 26px}
+label{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#59625b;font-weight:700;margin:18px 0 7px}
+.phone{display:flex}.prefix{display:grid;place-items:center;padding:0 15px;background:#e4e1d9;border:1px solid #bdbdb4;border-right:0;border-radius:3px 0 0 3px;font-weight:600}
+input{width:100%;border:1px solid #bdbdb4;border-radius:3px;background:#fff;color:#111713;padding:15px 14px;font:500 17px Barlow;outline:none;min-width:0}input:focus{border-color:#151515;box-shadow:0 0 0 3px rgba(232,65,44,.18)}.phone input{border-radius:0 3px 3px 0}
+.otp{letter-spacing:.42em;text-align:center;font-size:22px}.btn{border:1px solid var(--red);background:var(--red);color:#fff;width:100%;padding:15px 20px;margin-top:18px;border-radius:3px;font:700 12px Barlow;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}.btn:disabled{opacity:.55;cursor:wait}
+.secondary{display:block;text-align:center;margin-top:18px;color:#59625b;font-size:13px;text-decoration:underline;text-underline-offset:3px}
+.msg{min-height:22px;margin-top:12px;color:#b42c20;font-size:13px}.msg.ok{color:#315b3e}.fine{font-size:12px!important;line-height:1.5;color:#687168!important;margin:18px 0 0!important}
+.hidden{display:none!important}.foot{border-top:1px solid var(--line);padding:22px 0;color:var(--mut);font-size:12px}
+@media(max-width:800px){main{grid-template-columns:1fr;gap:34px;margin-top:24px}.intro{padding:12px 0}.benefits{display:none}h1{font-size:clamp(58px,16vw,88px)}.panel{max-width:560px;width:100%;margin:auto}.foot{gap:15px;flex-wrap:wrap}}
+</style></head>
+<body>
+<header class="top"><a class="logo" href="/">Sai Saravana <i>Turf</i></a><a class="back" href="/">← Back to website</a></header>
+<main>
+<section class="intro"><div class="eyebrow"><b>01</b> Your account</div><h1>Back to the <em>game.</em></h1><p class="lead">Sign in with your mobile number to keep your bookings, tickets and payment details together.</p><div class="benefits"><span>View upcoming and past bookings</span><span>Open your booking ticket and QR code</span><span>Check payment and booking status</span></div></section>
+<section class="panel" aria-labelledby="formTitle"><h2 id="formTitle">Sign in / Create account</h2><p>Use the mobile number you book with.</p>
+<form id="phoneForm"><label for="phone">Mobile number</label><div class="phone"><span class="prefix">+91</span><input id="phone" name="phone" inputmode="numeric" autocomplete="tel-national" maxlength="10" placeholder="10-digit mobile number" required></div><button class="btn" id="send" type="submit">Continue with OTP</button></form>
+<form id="otpForm" class="hidden"><label for="otp">One-time password</label><input class="otp" id="otp" name="otp" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="••••••" required><button class="btn" id="verify" type="submit">Verify and sign in</button><a class="secondary" href="#" id="resend">Resend code</a></form>
+<div class="msg" id="message" role="status" aria-live="polite"></div><p class="fine">By continuing, you agree to the booking terms and privacy policy. OTP delivery will be enabled when the customer authentication service and SMS provider are configured.</p>
+<a class="secondary" href="/#book">Continue to booking as a guest</a>
+</section></main>
+<footer class="foot"><span>© 2026 Sai Saravana Turf</span><span>Customer account · Secure sign-in</span></footer>
+<script>
+(function(){
+const API="/api/customer",phoneForm=document.getElementById("phoneForm"),otpForm=document.getElementById("otpForm"),phone=document.getElementById("phone"),otp=document.getElementById("otp"),msg=document.getElementById("message"),send=document.getElementById("send"),verify=document.getElementById("verify");
+let currentPhone="",resendUntil=0,resendTimer=null;
+function message(t,ok){msg.textContent=t||"";msg.className="msg"+(ok?" ok":"")}
+async function request(path,body){const r=await fetch(API+path,{method:"POST",credentials:"include",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});const data=await r.json().catch(()=>({}));if(!r.ok)throw Object.assign(new Error(data.message||"Request failed"),{status:r.status,data});return data}
+function startCooldown(){resendUntil=Date.now()+30000;const link=document.getElementById("resend");clearInterval(resendTimer);function tick(){const left=Math.max(0,Math.ceil((resendUntil-Date.now())/1000));link.textContent=left?"Resend code in "+left+"s":"Resend code";if(!left)clearInterval(resendTimer)}tick();resendTimer=setInterval(tick,1000)}
+phone.addEventListener("input",()=>{phone.value=phone.value.replace(/\D/g,"").slice(0,10)});
+phoneForm.addEventListener("submit",async e=>{e.preventDefault();const p=phone.value.trim();if(!/^[6-9]\d{9}$/.test(p)){message("Enter a valid 10-digit Indian mobile number.");return}send.disabled=true;send.textContent="Sending…";message("");try{await request("/auth/otp/request",{phone:"+91"+p});currentPhone=p;phoneForm.classList.add("hidden");otpForm.classList.remove("hidden");message("If this number is registered or new, an OTP has been sent.",true);startCooldown();otp.focus()}catch(err){message(err.status===404?"Customer sign-in is not connected yet. The backend OTP service must be enabled first.":err.message||"Could not send OTP. Please try again.")}finally{send.disabled=false;send.textContent="Continue with OTP"}});
+otpForm.addEventListener("submit",async e=>{e.preventDefault();const code=otp.value.trim();if(!/^\d{6}$/.test(code)){message("Enter the 6-digit OTP.");return}verify.disabled=true;verify.textContent="Verifying…";message("");try{await request("/auth/otp/verify",{phone:"+91"+currentPhone,otp:code});location.href="/account/"}catch(err){message(err.status===404?"Customer authentication is not connected yet. No account session was created.":err.message||"OTP verification failed.")}finally{verify.disabled=false;verify.textContent="Verify and sign in"}});
+document.getElementById("resend").addEventListener("click",async e=>{e.preventDefault();if(Date.now()<resendUntil)return;try{await request("/auth/otp/request",{phone:"+91"+currentPhone});message("A new OTP has been requested.",true);startCooldown()}catch(err){message(err.message||"Could not resend OTP.")}});
+})();
+</script></body></html>
